@@ -1,0 +1,1 @@
+ClientErrors = new Mongo.Collection(null);

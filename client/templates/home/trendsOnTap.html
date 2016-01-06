@@ -1,0 +1,55 @@
+<head>
+  <title>TrendsOnTap</title>
+  <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+</head>
+
+  <body>  
+    {{> infoBar}}
+  	{{> middle}}
+  </body>
+
+<template name="infoBar">
+  
+	<div class="page-header">
+      {{> errors}}
+
+      {{#unless userLogged }}
+        {{> tooltip}}
+      {{/unless}}
+      
+			{{> loginButtons}}
+
+			<h1>Trends On Tap<small>what's trending on twitter</small></h1>
+
+	</div>
+
+</template>
+
+<template name="middle">
+  <div class="container-fluid">
+    <div class="body box">
+      <form class="form-inline search-form" role="search">      
+        <span class="label label-default timestamp">{{timestamp trending.timestamp}}</span>
+        <span class="label label-info location-tag">{{trending.locationName}}</span>
+        <div class="form-group">          
+          <input type="text" name="text" class="form-control search-input" placeholder="Search" disabled="{{#unless userLogged }}disabled{{/unless}}">
+          <button type="submit" class="btn btn-default search-submit" disabled="{{#unless userLogged }}disabled{{/unless}}">Submit</button>
+        </div>            
+      </form>      
+      <div class="container-fluid trend-list-div">
+        <ul class="list-group">
+          
+          {{#each trending.trends}}
+          <li class="list-group-item">{{this.name}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="footer">
+  
+	<div class="footer"></div>
+
+</template>
