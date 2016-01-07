@@ -39,11 +39,9 @@ Trends = {
 	},
 	compareTimestamps: function(now, old){
 
-		//TODO: Make sure this is working...for feeds that are older than 5 minutes, use the api to search
-		//now - oldtime < (5 * 60 *1000)
-		now =  parseFloat(now);
-		old = parseFloat(now);
-		
+		var now = new Date(now)
+		var old = new Date(old)
+								
 		if(now - old < (5 * 60 *1000))
 			return true;
 		else

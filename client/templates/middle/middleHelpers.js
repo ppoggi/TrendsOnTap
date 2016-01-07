@@ -47,8 +47,7 @@ Template.middle.helpers({
     
       return Places.find().fetch().map(function(obj){return obj.name});     
   },
-  'count': function(volume){
-    console.log(volume)
+  'count': function(volume){    
     if(volume == null)
       return "Started trending in the last hour" 
     else{

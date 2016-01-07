@@ -22,11 +22,10 @@ TrendsRepo = {
 	},
   'update': function(user, woeid, locationName){
     //retrieve woeid stream from database
-    var stream = Trending.find({woeid:woeid}).fetch()[0];
+    var stream = Trending.find( {woeid:woeid}, {limit:1, sort:{ timestamp:-1} }).fetch()[0];
     //if there is a stream, check to see if it is older than 5 minutes
     //if it is older, hit the api again and update
-    if(stream){
-
+    if(stream){      
       var sentinel = Trends.compareTimestamps(Date.now(), stream.timestamp);
       if(sentinel){
         return;
