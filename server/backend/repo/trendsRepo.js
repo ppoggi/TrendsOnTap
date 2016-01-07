@@ -7,6 +7,9 @@ TrendsRepo = {
   			
   				if(err){
   					console.log(err);
+            if(!user)
+              user = 'global';
+            
   					Errors.insert({owner:user._id,error:err});
   					return;
   				}

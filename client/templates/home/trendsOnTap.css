@@ -55,6 +55,13 @@ h1{
 small{
 	margin-left:2%;
 }
+
+img{
+	height:60px;
+	width:60px;
+	margin-right:2%;
+}
+
 #login-buttons{
 	float:right;	
 }
@@ -151,7 +158,8 @@ li.list-group-item{
 
 	font-size:16px;
 }
-.page-header{
+body .page-header{
+	margin-top:20px;
 	padding-bottom:5px;
 }
 

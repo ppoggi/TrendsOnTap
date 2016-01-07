@@ -7,10 +7,9 @@ Meteor.methods({
 			woeid = 1;
 		}
 
-		var user = Meteor.user();		
-		console.log(user)
+		var user = Meteor.user();				
+		
 		if(!user){
-
 			console.log('getStream Not Available for unlogged users')
 			return;
 		}		
