@@ -56,11 +56,7 @@ small{
 	margin-left:2%;
 }
 
-img{
-	height:60px;
-	width:60px;
-	margin-right:2%;
-}
+
 
 #login-buttons{
 	float:right;	
@@ -92,7 +88,7 @@ img{
 }
 
 .body{
-	height:461px;
+	/*height:461px;*/
 	position: relative;
 }
 
@@ -145,8 +141,8 @@ li.list-group-item{
 }
 
 .trend-list-div{
-	height:400px;
-	overflow: scroll;
+	/*height:400px;*/
+	/*overflow: scroll;*/
 }
 
 .footer{

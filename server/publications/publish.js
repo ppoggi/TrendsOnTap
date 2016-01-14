@@ -1,7 +1,4 @@
 Meteor.publish("feed", function (woeid) {
-
-	if(!this.userId)
-		woeid = 1;
 	
 	return Trending.find( {woeid:woeid}, {limit:1, sort:{ timestamp:-1} });
 });

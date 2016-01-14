@@ -1,6 +1,5 @@
-//TODO: This should be refactored and renamed to be more descriptive
-
 Trends = {
+
 	createFeed: function(trends, woeid, locationName){
 
 		feed = {};			
@@ -29,29 +28,16 @@ Trends = {
 		    access_token:         token,
 		    access_token_secret:  secret
 		});
-	},//TODO: Create Places entitiy and remove from Trends Entitiy
-	createPlaces: function(places){
-
-		places = {};
-		places.locations = places;
-		places.timestamp = Date.now();
-		return places;
 	},
 	compareTimestamps: function(now, old){
 
 		var now = new Date(now)
 		var old = new Date(old)
 								
-		if(now - old < (5 * 60 *1000))
+		if(now - old < (5 * 60 *1000))//5 minutes > 
 			return true;
 		else
 			return false;
-	},
-	populatePlaces: function(){//only for development populating the places
-
-		for(var i =0; i < PlacesArray.length; i++){
-			Places.insert(PlacesArray[i])
-		}
 	}
 }
 

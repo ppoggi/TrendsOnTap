@@ -2,7 +2,7 @@ Helpers = {
 	verifySubmit : function(text){
 
 		var text = this.upperCaseFirstLetter(text);
-		var result = Places.find({name:text}).fetch()[0];
+		var result = Places.find({name: text}).fetch()[0];
 		
 		if(result)
 			return result;

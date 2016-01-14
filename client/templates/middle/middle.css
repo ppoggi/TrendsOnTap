@@ -1,5 +1,23 @@
 /*TODO FIX THIS SHIT*/
 
+/*Responsive*/
+@media (max-width:600px){
+  .trend-list-div{
+    margin-top:50px;
+  }
+  .search-form #places-search{
+    margin-top:40px;
+  }  
+  .search-submit{
+    margin-top:40px;
+  }
+
+  .form-group .twitter-typeahead .tt-menu.tt-open{
+    top:70px;
+  }
+
+}
+/*End Responsive*/
 .autocomplete-list{
 	position:absolute;
 	z-index: 30;
@@ -19,13 +37,27 @@ li small{
 }
 
 /*overrides*/
+
+
+.form-group .twitter-typeahead .tt-menu.tt-open{
+  position: absolute !important;
+  top:36px ;
+  left:-71px !important;
+  width:235px !important;
+}
+
+.tt-hint{
+  display:none !important;
+}
+
 .twitter-typeahead{
 	position:absolute !important;
 	top:0px !important;
 	right:0px !important;
 }
-.places-search{
-	background-color:white ;
+.search-form #places-search{
+	background-color:white !important;
+  width:175px !important;
 }
 
 .tt-menu{

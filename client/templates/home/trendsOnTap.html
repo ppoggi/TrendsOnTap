@@ -1,32 +1,15 @@
+<template name="mainLayout">
 <head>
   <title>TrendsOnTap</title>
   <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=500, initial-scale=1">
+
 </head>
 
   <body>  
     {{> infoBar}}
-  	{{> middle}}
+  	<!-- {{> middle}} -->
+    {{>Template.dynamic template=content}}
   </body>
-
-<template name="infoBar">
-  
-	<div class="page-header">
-      {{> errors}}
-
-      {{#unless userLogged }}
-        {{> tooltip}}
-      {{/unless}}
-      
-			{{> loginButtons}}
-
-			<h1><img src="/TrendsOnTapLogo.png">Trends On Tap<small>what's trending on twitter</small></h1>
-
-	</div>
-
-</template>
-
-<template name="footer">
-  
-	<div class="footer"></div>
 
 </template>

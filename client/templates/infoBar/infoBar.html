@@ -1,0 +1,22 @@
+<template name="infoBar">
+  
+	<div class="page-header">
+      {{> errors}}      
+
+      {{#unless userLogged }}
+        <!-- {{> tooltip}} -->
+      {{/unless}}
+      
+			{{> loginButtons}}
+			<div class="container-fluid">
+				<a href="/"><img src="/TrendsOnTapLogo.png"></a>
+				<h1>Trends On Tap<small>what's trending on twitter</small></h1>
+			</div>
+	</div>
+
+</template>
+
+<template name="footer">
+  
+	<div class="footer"></div>
+</template>

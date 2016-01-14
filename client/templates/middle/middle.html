@@ -5,10 +5,9 @@
         <span class="label label-default timestamp">{{timestamp trending.timestamp}}</span>
         <span class="label label-info location-tag">{{trending.locationName}}</span>
         <div class="form-group">    
+          <input id="places-search" name="autocomplete" class="form-control typeahead search-input" autocomplete="off" spellcheck="off" data-source="autocomplete" placeholder="Search" value = "">
 
-          <input id="places-search" type="text" name="autocomplete" class="form-control typeahead search-input" autocomplete="off" spellcheck="off" data-source="autocomplete" placeholder="Search" disabled="{{#unless userLogged }}disabled{{/unless}}">
-
-          <button type="submit" class="btn btn-default search-submit" disabled="{{#unless userLogged }}disabled{{/unless}}">Submit</button>
+          <button type="submit" class="btn btn-default search-submit">Submit</button>
         </div>                
       </form>      
       <div class="container-fluid trend-list-div">

@@ -38,15 +38,11 @@ Template.middle.helpers({
     return month +'/'+ date.getDate() +'/'+ year +', '+ hour +':'+ minutes +' '+noon;    
   },
 
-  'locationTag': function(){
-
-    return location =  Tags.find({name:'location'});
-  },
-
   'autocomplete': function(){
     
       return Places.find().fetch().map(function(obj){return obj.name});     
   },
+  
   'count': function(volume){    
     if(volume == null)
       return "Started trending in the last hour" 
