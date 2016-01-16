@@ -1,6 +1,7 @@
 <template name="middle">
-  <div class="container-fluid">
+  <div class="container-fluid">  
     <div class="body box">
+    {{#if Template.subscriptionsReady}}
       <form class="form-inline search-form" role="search">      
         <span class="label label-default timestamp">{{timestamp trending.timestamp}}</span>
         <span class="label label-info location-tag">{{trending.locationName}}</span>
@@ -17,6 +18,9 @@
           {{/each}}
         </ul>
       </div>
-    </div>
-  </div>
+      {{else}}
+  {{> loading}}
+  {{/if}} 
+    </div>   
+  </div>  
 </template>
