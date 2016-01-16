@@ -10,8 +10,8 @@ PlacesEntity = {
 
 	populatePlaces: function(){
 
-		for(var i =0; i < PlacesArray.length; i++){
-			Places.insert(PlacesArray[i])
+		for(var i =0; i < PlacesTwo.length; i++){
+			Places.insert(PlacesTwo[i])
 		}
 	}
 

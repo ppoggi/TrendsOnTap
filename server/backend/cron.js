@@ -1,10 +1,15 @@
 
 Meteor.startup(function() {
-	//Generator.mod = PlacesTwo.length;
+	
 	
 
 	UsageLog.initialize("Admin");
-	// Meteor.call('getGlobalStream', null, 1, 'Global');	
+
+	if (Places.find().count() === 0) {
+		PlacesEntity.populatePlaces();
+	}
+
+		
 });
 
 //task to update global
@@ -20,11 +25,9 @@ Meteor.setInterval(function(){
 
 Meteor.setInterval(function(){
 	
-	//check the LocationQ	
 	LocationQ.go();	
 
 },  5 * 1000);
-// },  1000);
 
 
 
