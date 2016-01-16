@@ -10,7 +10,7 @@ Template.middle.events({
       var valid = Helpers.verifySubmit(text);
       
       if(!valid){        
-        ClientErrors.insert({ message:"Invalid Location", color: "red"});
+        //ClientErrors.insert({ message:"Invalid Location", color: "red"});
         return;
       }
     
