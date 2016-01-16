@@ -50,14 +50,15 @@ button,a,input,div,nav,li{
 }
 h1{
 	margin-left:2%;
-	font-size:20px;
+	font-size:19px;
 }
-small{
+h1 small{
 	margin-left:2%;
+	font-size:60%;
 }
-
-
-
+h1 small span.glyphicon{
+	display:inline;
+}
 #login-buttons{
 	float:right;	
 }

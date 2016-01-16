@@ -29,4 +29,17 @@ img{
 	position: absolute;
 	top:59px;
 	left:70px;
+	width: auto;
+}
+
+@media (max-width: 600px) {
+
+	.page-header .container-fluid{
+		margin-bottom:37px;
+	}
+	h1{
+		top:90px;
+		left:8px;
+		width:300px;
+	}
 }
