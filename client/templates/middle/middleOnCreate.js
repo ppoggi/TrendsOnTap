@@ -9,7 +9,7 @@ Template.middle.onCreated(function(){
 	 	 	return 1
 	 	}		 	 
 
-	 	param = decodeURIComponent(param);
+	 	param = Helpers.decodeUrl(param);
 	 	param = Places.find({name:param}).fetch()[0].woeid;
 	 	
 	 	return param;	 	
@@ -25,9 +25,7 @@ Template.middle.onCreated(function(){
 });
 
  Template.middle.rendered = function() {
-
-  Meteor.typeahead.inject('#places-search');
-  $('input').attr('autocomplete','off');
+ 	
  };
 
 

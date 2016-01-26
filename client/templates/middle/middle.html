@@ -1,26 +1,78 @@
 <template name="middle">
-  <div class="container-fluid">  
-    <div class="body box">
-    {{#if Template.subscriptionsReady}}
-      <form class="form-inline search-form" role="search">      
-        <span class="label label-default timestamp">{{timestamp trending.timestamp}}</span>
-        <span class="label label-info location-tag">{{trending.locationName}}</span>
-        <div class="form-group">    
-          <input id="places-search" name="autocomplete" class="form-control typeahead search-input" autocomplete="off" spellcheck="off" data-source="autocomplete" placeholder="Search Locations" value = "">
+    <div class="container-fluid">
 
-          <button type="submit" class="btn btn-default search-submit">Submit</button>
-        </div>                
-      </form>      
-      <div class="container-fluid trend-list-div">
-        <ul class="list-group">          
-          {{#each trending.trends}}
-          <li class="list-group-item"><span>{{this.name}} <a class="url-link" href="{{this.url}}"><span class="glyphicon glyphicon-arrow-right"></span></a> </span><div><small>{{count this.tweet_volume}}</small></div></li>
-          {{/each}}
-        </ul>
-      </div>
-      {{else}}
-  {{> loading}}
-  {{/if}} 
-    </div>   
-  </div>  
+        {{#unless Template.subscriptionsReady}}
+            {{> loading}}
+        {{/unless}} 
+
+        <div class="container-fluid">
+
+            <div class="box">  
+                <div class="row">
+
+
+                    <div class="col-md-5">
+                        <div class="btn-group">                          
+                            <div class="location-tag"> <span class="badge place-badge">
+                                {{#if currentLocation}}
+                                    {{currentLocation}}
+                                {{else}}
+                                    World Wide
+                                {{/if}}
+                            </span>@{{timestamp trending.timestamp}}</div>                          
+                        </div>
+
+                        <span class="btn btn-default glyphicon glyphicon-repeat redo" disabled="{{#unless currentLocation}}true{{/unless}}"></span>
+                    </div>                    
+                                      
+
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-xs-3">
+                      <div class="btn-group">                       
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Countries <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu place-list">
+                              {{#each countries}}
+
+                                  <li class="country-list-item">{{name}}</li>
+                              {{/each}}
+                          </ul>
+
+
+                      </div>                          
+                  </div>
+                  
+
+                  <div class="col-xs-1">
+                  </div>
+
+                  <div class="col-xs-2">
+                      <div class="btn-group">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Cities <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu place-list">
+                              {{#each cities}}
+                                  <li class="city-list-item">{{name}}</li>
+                              {{/each}}
+                          </ul>                            
+                      </div>
+                  </div>                                                                                  
+               
+              </div>
+          </div>   
+
+          <div class= "row">
+              <div class="col-md-12">         
+                  <ul class="list-group">          
+                      {{#each trending.trends}}
+                          <li class="list-group-item"><span>{{this.name}} <a class="url-link" href="{{this.url}}"><span class="glyphicon glyphicon-arrow-right"></span></a> </span><div><small>{{count this.tweet_volume}}</small></div></li>
+                      {{/each}}
+                  </ul>
+                </div>  
+            </div>      
+        </div>
+    </div>       
 </template>

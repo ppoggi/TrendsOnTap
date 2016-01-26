@@ -5,7 +5,7 @@ FlowRouter.route('/', {
 });
 
 
-FlowRouter.route('/:locationName', {
+FlowRouter.route('/:domain/:locationName', {
   action: function() {
     BlazeLayout.render("mainLayout", {content: "middle"});
   }

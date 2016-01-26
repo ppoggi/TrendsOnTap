@@ -1,20 +1,22 @@
 Template.middle.events({
+
+  'click .redo': function(){
+    FlowRouter.go('/');
+  },
     
-    'submit .form-inline.search-form': function (e) {  
+  'click .place-list li': function(e){
+    var place = this.name;
+    var domain = this.placeType.name;
+  
+    var valid = Helpers.verifySubmit(place);
 
-      e.preventDefault();
+    if(!valid){        
+      ClientErrors.insert({ message:"Invalid Location", color: "red"});
+      return;
+    }
 
-      ClientErrors.remove({});
-
-      var text = e.target.autocomplete.value;
-      var valid = Helpers.verifySubmit(text);
-      
-      if(!valid){        
-        //ClientErrors.insert({ message:"Invalid Location", color: "red"});
-        return;
-      }
-    
-      Meteor.call('getStream', valid.woeid, valid.name,
+    Meteor.call('getStream', valid.woeid, valid.name,
+        
         function(err, message){          
           if(err){
             if(!err.color)
@@ -23,14 +25,15 @@ Template.middle.events({
           }
           if(message)
             ClientErrors.insert(message)
-       }
+        } 
       );      
 
-      text = encodeURIComponent(text);
-      FlowRouter.go('/'+text);
-    },
+      text = Helpers.generateUrl(place);
 
-    'click a': function(e){
+      FlowRouter.go('/'+domain+'/'+text);
+  },
+
+    'click .list-group-item span a': function(e){
       e.preventDefault();
       window.open(this.url);
     }

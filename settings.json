@@ -1,5 +1,10 @@
 {
-  "public": {
-
-  }
+	"twitter":{
+		"api_key": "6a0GX7eDoqwKjevLKwZoDCu9A",
+		"api_secret": "LCk3A8a7c9svxMPZpMKiK5UbNWMgl8TbjgOQBOXM5eaP6nLtih"
+	},
+	"credentials_twitter":{
+		"access_token": "3839700732-KhvMfuytuDMqOtcD0grvdi9CFGJ79WG6u83ftvp",
+		"access_token_secret": "GX81KNUkTOEokpovSIuWge9Toyzov1jqn5ZvU0c5r6CzF"
+	}
 }

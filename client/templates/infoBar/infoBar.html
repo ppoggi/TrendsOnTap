@@ -1,19 +1,34 @@
 <template name="infoBar">
   
 	<div class="page-header">
-      {{> errors}}
+		{{> errors}}
 
-      {{#unless userLogged }}
-        
-      {{/unless}}
+			{{#unless userLogged }}
+		{{/unless}}
       
-			 {{> loginButtons}} 
-			<div class="container-fluid">
-				<a href="/"><img src="/TrendsOnTapLogo.png"></a>
-				<h1>Trends On Tap<small>what's trending on Twitter<span class="glyphicon glyphicon-registration-mark"></span></small></h1>
-			</div>
-	</div>
+		{{> loginButtons}} 
+		<div class="container-fluid">		
+			<div class="row">
+				<div class="col-md-6">
+				
+					<div class="row">
+						<div class="col-md-6">
+							<h1>Trends On Tap</h1>
+						</div>
+						<div class="col-md-6 title-small">
+							<small>what's trending on Twitter<span class="glyphicon glyphicon-registration-mark"></span></small>
+						</div>
+					</div>
 
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">	
+					<span class="label label-info beta-label">BETA</span>
+				</div>				
+			</div>
+		</div>				
+	</div>
 </template>
 
 <template name="footer">

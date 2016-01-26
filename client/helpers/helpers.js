@@ -17,5 +17,17 @@ Helpers = {
 	throwError : function(message){
 		
 		ClientErrors.insert({message:message});
+	},
+	generateUrl: function(pre){
+		
+		var post = pre.replace(" ","-");
+		post = post.replace(" ","-");
+		return post;
+	},
+	decodeUrl: function(pre){
+		
+		var post = pre.replace("-"," ");
+		post = post.replace("-"," ");
+		return post;
 	}
 }

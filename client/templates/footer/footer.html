@@ -1,5 +1,25 @@
-<template name="footer">
+<template name="foot">
 <div class="footer-div">
-	<p>Created with Meteor</p>
+	<a class="twitter-share-button" data-size="large"
+  href="https://twitter.com/intent/tweet?text=Find%20the%20top%20trending%20topics%20in%20any%20location%20using%20">
+Tweet</a>
 </div>
+<script>
+	window.twttr = (function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0],
+		t = window.twttr || {};
+		if (d.getElementById(id)) return t;
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "https://platform.twitter.com/widgets.js";
+		fjs.parentNode.insertBefore(js, fjs);
+
+		t._e = [];
+		t.ready = function(f) {
+			t._e.push(f);
+		};
+
+		return t;
+	}(document, "script", "twitter-wjs"));
+</script>
 </template>

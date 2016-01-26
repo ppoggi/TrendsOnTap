@@ -18,13 +18,13 @@ Trends = {
 			token  = user.services.twitter.accessToken;
 			secret = user.services.twitter.accessTokenSecret;			
 		}else{
-			token  = '4693126453-cDXKMGyDFvXsHlhWz8RWVxkLfld19rERyqWpM1f';
-			secret = 'fC3fNFmAoEfDG1F89FLgSUYeqv79iUlnjPJHgbMIFBzBR';
+			token  = Meteor.settings.credentials_twitter.access_token;
+			secret = Meteor.settings.credentials_twitter.access_token_secret;
 		}
 
 		return new Twit({	
-		    consumer_key:         'APJEv7zCTaspch7UmpLC3lXNN',
-		    consumer_secret:      'ONpa4oCkzen4tffxrOHELmsVYZ0Gw7vx7OuEF9g6jJBAeTs81L',
+		    consumer_key:         Meteor.settings.twitter.api_key,
+		    consumer_secret:      Meteor.settings.twitter.api_secret,
 		    access_token:         token,
 		    access_token_secret:  secret
 		});

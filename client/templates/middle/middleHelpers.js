@@ -1,49 +1,27 @@
 Template.middle.helpers({
 
-  'trending': function () {
+  'trending': function(){
 
     return Trending.findOne({});
   },
 
+  'currentLocation': function(){
+
+      var loc =  FlowRouter.getParam('locationName');    
+      
+      if(!loc)
+        loc =false;
+      
+      return loc;
+  },
+
   'timestamp': function(timestamp){
 
-    if(!timestamp)
-      return null;
-
-    var date = new Date(timestamp);
-    var hour = date.getHours();
-    var noon;
-    
-    if(hour > 12)
-      noon = "P.M.";
-    else
-      noon = "A.M.";
-
-    hour = hour % 12;
-
-    if(hour == 0)
-      hour = 12;
-
-    var month = date.getMonth() + 1;
-
-    var minutes = date.getMinutes();
-
-    if(parseInt(minutes) < 10){
-      minutes = '0'+minutes 
-    }
-
-    var year = date.getYear() +""; 
-    year = year.slice(1);
-
-    return month +'/'+ date.getDate() +'/'+ year +', '+ hour +':'+ minutes +' '+noon;    
-  },
-
-  'autocomplete': function(){
-    
-      return Places.find().fetch().map(function(obj){return obj.name});     
+      return DateHelpers.formatDate(timestamp);     
   },
   
-  'count': function(volume){    
+  'count': function(volume){ 
+
     if(volume == null)
       return "Started trending in the last hour" 
     else{
@@ -53,6 +31,31 @@ Template.middle.helpers({
       }
       return volume +" Tweets";
     }
+  },
+
+  'countries': function(){
+  
+    var countries =  Places.find( { 'placeType.name' : "Country"}, { sort:{ 'name': 1}});   
+    return countries;
+  },
+
+  'cities': function(){
+  
+    var query;    
+    var param = FlowRouter.getParam('locationName');    
+    var domain = FlowRouter.getParam('domain');
+    
+    if(param){
+
+      if(domain == "Country")       
+        query = { 'placeType.name' : "Town", country: Helpers.decodeUrl(param)};                  
+    }else{
+
+      query = { 'placeType.name' : "Town"};
+    }
+  
+    var cities = Places.find( query , { sort:{ 'name': 1}});    
+    return cities;
   }
 });
 

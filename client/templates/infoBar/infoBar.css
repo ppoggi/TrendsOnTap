@@ -1,7 +1,13 @@
+.title-small{
+	margin-left:2%;
+	font-size:14px;
+}
+
 img{
 	height:60px;
 	width:60px;
 	margin-right:2%;
+	position: absolute;
 }
 
 .login-tooltip{
@@ -25,21 +31,13 @@ img{
 	padding-left:10px;
 }
 
- h1{
-	position: absolute;
-	top:59px;
-	left:70px;
-	width: auto;
+.beta-label{
+	margin-left:2%;	
 }
-
-@media (max-width: 600px) {
-
-	.page-header .container-fluid{
-		margin-bottom:37px;
-	}
-	h1{
-		top:90px;
-		left:8px;
-		width:300px;
-	}
+.row{
+	margin-top:5px;
+}
+/* BETA*/
+body .page-header .container-fluid{
+	margin-bottom:5px;
 }
