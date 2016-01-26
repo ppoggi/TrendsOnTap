@@ -14,16 +14,16 @@ TrendsRepo = {
 		T.get('trends/place', { id: woeid, count: 100 }, Meteor.bindEnvironment(function(err, data, response) {
   			
   				if(err){  					            
-            //TODO logs
+            
             if(!user){
               UsageLog.max("Admin");
               LocationQ.add({woeid:woeid, locationName: locationName});
             }
             else
               UsageLog.max(user._id);
-
-            throw new Meteor.Error('Twitter.error', err.message);  					
+              throw new Meteor.Error('Twitter.error', err.message);  					
   				}
+          
   				if(data){
             
             if(user)
