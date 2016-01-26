@@ -49,7 +49,7 @@ localstorage@1.0.5
 logging@1.0.8
 meteor@1.1.10
 meteor-base@1.0.1
-meteorhacks:kadira@2.27.0
+meteorhacks:kadira@2.27.2
 meteorhacks:meteorx@1.4.1
 meteortoys:toykit@2.2.1
 minifiers@1.1.7
@@ -75,7 +75,7 @@ retry@1.0.4
 routepolicy@1.0.6
 sacha:spin@2.3.1
 schiller:twit@0.0.1
-sergeyt:typeahead@0.11.1_7
+sergeyt:typeahead@0.11.1_8
 service-configuration@1.0.5
 session@1.1.1
 spacebars@1.0.7
