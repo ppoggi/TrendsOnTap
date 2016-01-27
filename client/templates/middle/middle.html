@@ -9,9 +9,7 @@
 
             <div class="box">  
                 <div class="row">
-
-
-                    <div class="col-md-5">
+                    <div class="col-md-12">
                         <div class="btn-group">                          
                             <div class="location-tag"> <span class="badge place-badge">
                                 {{#if currentLocation}}
@@ -23,32 +21,19 @@
                         </div>
 
                         <span class="btn btn-default glyphicon glyphicon-repeat redo" disabled="{{#unless currentLocation}}true{{/unless}}"></span>
-                    </div>                    
-                                      
 
-                    <div class="col-md-1">
-                    </div>
-                    <div class="col-xs-3">
                       <div class="btn-group">                       
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Countries <span class="caret"></span>
                           </button>
                           <ul class="dropdown-menu place-list">
+                              <li class="country-list-item">United States</li>
                               {{#each countries}}
 
                                   <li class="country-list-item">{{name}}</li>
                               {{/each}}
                           </ul>
-
-
-                      </div>                          
-                  </div>
-                  
-
-                  <div class="col-xs-1">
-                  </div>
-
-                  <div class="col-xs-2">
+                      </div>
                       <div class="btn-group">
                           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Cities <span class="caret"></span>
@@ -59,8 +44,7 @@
                               {{/each}}
                           </ul>                            
                       </div>
-                  </div>                                                                                  
-               
+                  </div>                                                                                                          
               </div>
           </div>   
 
