@@ -45,7 +45,7 @@ table {
 
 * { margin: 0; padding: 0; }
 
-button,a,input,div,nav,li,ul{
+button,a,input,div,nav,li,ul,span{
 	border-radius: 0px !important;
 }
 h1{

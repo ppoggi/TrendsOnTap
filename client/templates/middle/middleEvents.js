@@ -2,7 +2,7 @@ Template.middle.events({
 
   'click .redo': function(){    
       
-      RoutingHelpers.verifyRoute();
+      FlowRouter.go('/');
   },
     
   'click .place-list li': function(e){

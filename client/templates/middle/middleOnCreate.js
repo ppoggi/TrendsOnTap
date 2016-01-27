@@ -9,7 +9,7 @@ Template.middle.onCreated(function(){
 	 	 	return 1
 	 	}		 	 
 
-	 	param = Helpers.decodeUrl(param);
+	 	param = RoutingHelpers.decodeUrl(param);
 	 	param = Places.find({name:param}).fetch()[0].woeid;
 	 	
 	 	return param;	 	

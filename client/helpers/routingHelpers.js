@@ -1,5 +1,19 @@
 RoutingHelpers = {
 
+	generateUrl: function(pre){
+		
+		var post = pre.replace(" ","-");
+		post = post.replace(" ","-");
+		return post;
+	},
+
+	decodeUrl: function(pre){
+		
+		var post = pre.replace("-"," ");
+		post = post.replace("-"," ");
+		return post;
+	},
+
 	qTrends: function(valid){
 
 		Meteor.call('getStream', valid.woeid, valid.name, function(err, message){          
@@ -15,16 +29,18 @@ RoutingHelpers = {
 	    });
 	},
 	verifyRoute: function(scope){
+
+		Helpers.clearErrors();
 	  	var place  = scope.name;
-      	var domain = scope.placeType.name;  
+      	var domain = scope.placeType.name;      
       	var valid  = Helpers.verifySubmit(place);
 
       	if(!valid){        
+
 	        ClientErrors.insert({ message:"Invalid Location", color: "red"});
     	    return;
       	}
-
-      	this.qTrends(valid);     
-      	return {domain, place};
+      	    
+      	return {domain:domain, place: RoutingHelpers.generateUrl(valid.name)};
 	}
 }

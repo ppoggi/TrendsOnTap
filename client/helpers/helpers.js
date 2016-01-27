@@ -1,4 +1,5 @@
 Helpers = {
+
 	verifySubmit : function(text){
 
 		var text = this.upperCaseFirstLetter(text);
@@ -10,24 +11,32 @@ Helpers = {
 		 return null; 
 		
 	},
+
 	upperCaseFirstLetter : function(string){
 		 
 		 return string.charAt(0).toUpperCase() + string.slice(1);
 	},
+	
 	throwError : function(message){
 		
 		ClientErrors.insert({message:message});
 	},
-	generateUrl: function(pre){
-		
-		var post = pre.replace(" ","-");
-		post = post.replace(" ","-");
-		return post;
+
+	clearErrors :function(){
+
+		ClientErrors.remove({});
 	},
-	decodeUrl: function(pre){
+
+	prioritize: function(cursor, callback){
+
+		var fetch = cursor.fetch();
+
+		if(!fetch[0]){
+			return;
+		}
 		
-		var post = pre.replace("-"," ");
-		post = post.replace("-"," ");
-		return post;
+		for(var i =0; i< Priorities.list.length; i++)			
+			Priorities.insert(fetch[Priorities.list[i].index]);
+					
 	}
 }

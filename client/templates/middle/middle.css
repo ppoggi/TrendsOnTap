@@ -45,6 +45,7 @@ li small{
   background-color:#5bc0de;
   color:white;
   font-size:16px;
+  margin-right:3px;
 }
 
 .box{
@@ -58,10 +59,11 @@ li small{
 }
 
 .redo{
-  padding:4px;
+  padding:2px;
   padding-left:7px;
   font-size:19px;
   color:#5bc0de;
   padding-right:7px;
   margin-left:10px;
+  margin-bottom:1px;
 }
