@@ -39,7 +39,7 @@ Trends = {
 		var now = new Date(now)
 		var old = new Date(old)
 								
-		if(now - old < (5 * 60 *1000))//5 minutes > 
+		if(now - old < (30 * 60 *1000))//30 minutes > 
 			return true;
 		else
 			return false;
