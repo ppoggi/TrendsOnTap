@@ -7,9 +7,8 @@ Template.middle.events({
     
   'click .place-list li': function(e){
       
-      var route = RoutingHelpers.verifyRoute(this);
-
-      FlowRouter.go('/'+route.domain+'/'+route.place);
+      var route = RoutingHelpers.verifyRoute(this);      
+      FlowRouter.go(route);
   },
 
     'click .list-group-item span a': function(e){

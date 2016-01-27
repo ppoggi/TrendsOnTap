@@ -1,26 +1,30 @@
 Template.middle.onCreated(function(){
 
-	self = this;
+
 	 this.getLocationName = function(){
-	 	 	
-	 	var param =	FlowRouter.getParam('locationName');
-
-	 	if(!param){
-	 	 	return 1
-	 	}		 	 
-
+ 	 	var param;
+	 	var domain = FlowRouter.getParam('domain');	 	
+	 	
+	 	if(!domain)
+	 	 	return 1;
+	 	
+	 	if(domain == "Country")
+	 		param = FlowRouter.getParam('country');	 		 	
+	 	else
+	 	 	param = FlowRouter.getParam('city');	 	 	
+			 	
 	 	param = RoutingHelpers.decodeUrl(param);
 	 	param = Places.find({name:param}).fetch()[0].woeid;
 	 	
 	 	return param;	 	
 	 }
 
-	var handle = self.subscribe('places');
+	var handle = this.subscribe('places');
 	
-	self.autorun( () => {
+	this.autorun( () => {
     			    	    
 	    if(handle.ready())
-	    	self.subscribe('feed' , this.getLocationName() );		
+	    	this.subscribe('feed' , this.getLocationName() );		
 	});  
 });
 

@@ -2,17 +2,25 @@ Template.middle.helpers({
 
   'trending': function(){
 
-    return Trending.findOne({});
+      return Trending.findOne({});
   },
 
-  'currentLocation': function(){
+  'currentCountry': function(){
 
-      var loc =  FlowRouter.getParam('locationName');    
-      
-      if(!loc)
-        loc =false;
-      
-      return loc;
+      var country =  FlowRouter.getParam('country');          
+      if(!country)
+        return false
+
+      return RoutingHelpers.decodeUrl(country);           
+  },
+  
+  'currentCity':function(){
+
+    var city =  FlowRouter.getParam('city');    
+    if(!city)
+      return false
+
+    return RoutingHelpers.decodeUrl(city);
   },
 
   'timestamp': function(timestamp){
@@ -22,43 +30,39 @@ Template.middle.helpers({
   
   'count': function(volume){ 
 
-    if(volume == null)
-      return "Started trending in the last hour" 
-    else{
-      if(parseInt(volume) > 999){
-        
-        volume = volume + "";        
-        volume = volume.slice(0,volume.length-3) +"K"
+      if(volume == null)
+          return "Started trending in the last hour" 
+      else{
+        if(parseInt(volume) > 999){
+          
+          volume = volume + "";        
+          volume = volume.slice(0,volume.length-3) +"K"
+        }
+          return volume +" Tweets";
       }
-      return volume +" Tweets";
-    }
   },
 
   'countries': function(){
   
-    var countries =  Places.find( { 'placeType.name' : "Country"}, { sort:{ 'name': 1}});   
-    
-    Helpers.prioritize(countries, function(err){
-        Helpers.throwError(err);
-    });
+      var countries =  Places.find( { 'placeType.name' : "Country"}, { sort:{ 'name': 1}});   
+      
+      Helpers.prioritize(countries, function(err){
+          Helpers.throwError(err);
+      });
 
-    return countries;
+      return countries;
   },
 
   'cities': function(){
   
       var query;    
-      var param = FlowRouter.getParam('locationName');    
+      var param = FlowRouter.getParam('country');    
       var domain = FlowRouter.getParam('domain');
-      
-      if(param){
-
-        if(domain == "Country")       
-          query = { 'placeType.name' : "Town", country: RoutingHelpers.decodeUrl(param)};                  
-      }else{
-
-        query = { 'placeType.name' : "Town"};
-      }
+          
+      if(domain == "Country")            
+          query = { 'placeType.name' : "Town", country: RoutingHelpers.decodeUrl(param)};        
+      else        
+          query = { 'placeType.name' : "Town"};                           
     
       var cities = Places.find( query , { sort:{ 'name': 1}});    
       return cities;
@@ -66,7 +70,7 @@ Template.middle.helpers({
 
   'priorities': function(){
     
-    return Priorities.find();
+      return Priorities.find();
   }
 });
 

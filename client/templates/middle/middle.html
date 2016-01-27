@@ -1,55 +1,50 @@
 <template name="middle">
     <div class="container-fluid">
-
         {{#unless Template.subscriptionsReady}}
             {{> loading}}
         {{/unless}} 
-
         <div class="container-fluid">
-
             <div class="box">  
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="btn-group">                          
-                            <div class="location-tag"> <span class="badge place-badge">
-                                {{#if currentLocation}}
-                                    {{currentLocation}}
-                                {{else}}
-                                    World Wide
-                                {{/if}}
-                            </span>{{timestamp trending.timestamp}}</div>                          
-                        </div>                        
-
+                    <div class="col-md-12">                                                
                         <div class="btn-group">                       
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Countries <span class="caret"></span>
+                                {{#if currentCountry}}
+                                    {{currentCountry}}
+                                {{else}}
+                                    World Wide
+                                {{/if}} 
+                                <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu place-list">
                                 {{#each priorities}}
-
                                     <li class="country-list-item">{{name}}</li>
                                 {{/each}}                              
                                 {{#each countries}}
-
                                     <li class="country-list-item">{{name}}</li>
                                 {{/each}}
                             </ul>
                         </div>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Cities <span class="caret"></span>
+                                {{#if currentCity}}
+                                    {{currentCity}}
+                                {{else}}
+                                    Cities
+                                {{/if}}
+                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu place-list">
                                 {{#each cities}}
                                     <li class="city-list-item">{{name}}</li>
                                 {{/each}}
-                            </ul>                            
-                        </div>
-                        <span class="btn btn-default glyphicon glyphicon-ban-circle redo" disabled="{{#unless currentLocation}}true{{/unless}}"></span> 
+                            </ul>                                                    
+                        </div>                        
+                        <div class="btn btn-default">{{timestamp trending.timestamp}}</div> 
+                        <span class="btn btn-default glyphicon glyphicon-ban-circle redo"></span> 
                     </div>                                                                  
                 </div>
             </div>   
-
             <div class= "row">
                 <div class="col-md-12">         
                     <ul class="list-group">          

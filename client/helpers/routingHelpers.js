@@ -3,14 +3,14 @@ RoutingHelpers = {
 	generateUrl: function(pre){
 		
 		var post = pre.replace(" ","-");
-		post = post.replace(" ","-");
+		post     = post.replace(" ","-");
 		return post;
 	},
 
 	decodeUrl: function(pre){
-		
+
 		var post = pre.replace("-"," ");
-		post = post.replace("-"," ");
+		post     = post.replace("-"," ");
 		return post;
 	},
 
@@ -31,16 +31,20 @@ RoutingHelpers = {
 	verifyRoute: function(scope){
 
 		Helpers.clearErrors();
-	  	var place  = scope.name;
-      	var domain = scope.placeType.name;      
-      	var valid  = Helpers.verifySubmit(place);
-
+	  	var place   = scope.name;
+      	var domain  = scope.placeType.name;      
+      	var valid   = Helpers.verifySubmit(place);
+      	var country = scope.country;
+      	
       	if(!valid){        
 
 	        ClientErrors.insert({ message:"Invalid Location", color: "red"});
     	    return;
-      	}
-      	    
-      	return {domain:domain, place: RoutingHelpers.generateUrl(valid.name)};
+      	}		      	          	 
+      	 if(valid.name == country)
+      	 	return "/"+domain+"/"+RoutingHelpers.generateUrl(valid.name);
+      	 else
+      	 	return "/"+domain+"/"+RoutingHelpers.generateUrl(country)+"/"+RoutingHelpers.generateUrl(valid.name);
+
 	}
 }
